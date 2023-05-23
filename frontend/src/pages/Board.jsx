@@ -15,11 +15,13 @@ const Board = () => {
     <>
       <Navbar />
       <div className={Styles.list_container}>
-        {
-          list.map((item, idx) => {
-            return <List key={idx} {...item} />
-          })
-        }
+        <div className={Styles.list}>
+          {
+            list.map((item, idx) => {
+              return <List key={idx} {...item} />
+            })
+          }
+        </div>
         <AddList />
       </div>
     </>

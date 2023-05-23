@@ -1,11 +1,19 @@
-.list{
+.list {
     border: 1px solid black;
-    min-height:  450px;
+    min-height: 450px;
     background-color: #F0F0F0;
 }
-.list > h4 {
+
+.list>h4 {
     background-color: black;
     color: white;
     text-align: center;
     padding: 7px;
+}
+
+.list>button {
+    padding: 5px 10px;
+    width: 90%;
+    margin: 10px auto;
+    display: block  ;
 }

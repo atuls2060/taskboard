@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Styles from "./addlist.module.css"
+import { ListContext } from '../Contexts/ListContext'
 
 const AddList = () => {
+    const {createList} = useContext(ListContext)
     const handleAdd = () => {
-        
+        createList()
     }
 
     return (

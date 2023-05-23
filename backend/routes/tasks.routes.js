@@ -5,10 +5,9 @@ const taskRouter = require("express").Router();
 
 
 taskRouter.get("/", async (req, res) => {
-    let { listId, userId } = req.body
-    console.log(listId)
+    let {userId } = req.body
     try {
-        const task = await TaskModel.find({ listId, userId })
+        const task = await TaskModel.find({userId })
         res.send(task)
     } catch (error) {
         res.status(500).send({
@@ -43,6 +42,7 @@ taskRouter.post("/", async (req, res) => {
 
 taskRouter.patch("/:id", async (req, res) => {
     const id = req.params.id;
+    console.log(id)
     
     try {
         await TaskModel.findByIdAndUpdate(id, { ...req.body })
@@ -66,7 +66,7 @@ taskRouter.delete("/:id", async (req, res) => {
     try {
         await TaskModel.deleteOne({ _id: id, userId });
         res.send({
-            message: "Deleted Successfully",
+            message: "Completed Successfully",
         })
     } catch (error) {
         res.status(400).send({

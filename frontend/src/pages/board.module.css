@@ -1,10 +1,19 @@
-.list_container {
+.list_container{
     display: flex;
     padding: 20px;
     gap: 20px;
+    align-items: start;
+}
+.list_container > div:last-child{
+    min-width: 250px;
+}
+.list {
+    display: flex;
+    gap: 20px;
     align-items: flex-start;
+    overflow-x: scroll;
 }
 
-.list_container>div {
-    width: 20%;
+.list>div {
+    min-width: 250px;
 }
