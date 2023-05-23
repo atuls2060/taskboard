@@ -38,7 +38,7 @@ const TaskContextProvider = ({ children }) => {
             alert(error.response.data.message)
         }
     }
-    const updateTask = async (id, updates) => {
+    const updateTask = async (id, updates, dragEvent = false) => {
         const token = JSON.parse(localStorage.getItem("token"))
         const baseUrl = process.env.REACT_APP_BASE_URL
         try {
@@ -48,7 +48,9 @@ const TaskContextProvider = ({ children }) => {
                 },
             })
             console.log(data)
-            alert("Updated")
+            if (!dragEvent) {
+                alert("Updated")
+            }
             getTasks()
         } catch (error) {
             console.log("error", error)

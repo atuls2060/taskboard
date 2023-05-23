@@ -4,7 +4,7 @@ import TaskItem from './TaskItem';
 import { TaskContext } from '../Contexts/TaskContext';
 
 const List = ({ _id }) => {
-    const { tasks, getTasks, createTask } = useContext(TaskContext)
+    const { tasks, getTasks, createTask, updateTask } = useContext(TaskContext)
 
 
     const handleAdd = () => {
@@ -14,15 +14,29 @@ const List = ({ _id }) => {
         }
     }
 
+
+    function handleDragOver(e) {
+        e.preventDefault();
+    }
+
+
+    function handleDrop(e) {
+        e.preventDefault();
+        const taskId = e.dataTransfer.getData("text/plain");
+        const newListId = _id
+        updateTask(taskId, { listId: newListId },true)
+    }
+
+
     useEffect(() => {
         getTasks(_id)
     }, [])
     return (
         <div className={Styles.list}>
-            <h4>List</h4>
-            <div>
+            <h4>{_id}</h4>
+            <div onDrop={handleDrop} onDragOver={handleDragOver}>
                 {
-                    tasks.filter((item)=>item.listId === _id).map((item, idx) => {
+                    tasks.filter((item) => item.listId === _id).map((item, idx) => {
                         return <TaskItem key={idx} {...item} />
                     })
                 }
