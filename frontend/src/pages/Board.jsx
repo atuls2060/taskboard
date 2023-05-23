@@ -18,7 +18,7 @@ const Board = () => {
         <div className={Styles.list}>
           {
             list.map((item, idx) => {
-              return <List key={idx} {...item} />
+              return <List key={idx} idx={idx} {...item} />
             })
           }
         </div>
