@@ -1,0 +1,24 @@
+.addlist {
+    border: 1px solid black;
+    position: relative;
+    min-height: 200px !important;
+}
+
+.addlist>h4 {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 7px;
+}
+
+.addlist>button {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+    border: 1px solid;
+}
